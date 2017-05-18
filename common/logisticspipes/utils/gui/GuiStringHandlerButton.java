@@ -24,7 +24,6 @@ public class GuiStringHandlerButton extends GuiButton {
 	}
 
 	public interface StringHandler {
-
 		public String getContent();
 	}
 

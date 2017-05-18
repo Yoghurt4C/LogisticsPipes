@@ -19,26 +19,62 @@ import org.lwjgl.opengl.GL11;
 public class SmallGuiButton extends GuiButton {
 
 	private final int stringOffset;
+	private final StringHandler stringHandler;
+	private final VisabilityHandler visHandler;
 
 	public SmallGuiButton(int buttonId, int x, int y, int width, int height, String label) {
 		this(buttonId, x, y, width, height, label, 0);
 	}
 
+	public SmallGuiButton(int buttonId, int x, int y, int width, int height, StringHandler label) {
+		this(buttonId, x, y, width, height, label, 0);
+	}
+
+	public SmallGuiButton(int buttonId, int x, int y, int width, int height, StringHandler label, VisabilityHandler visabilityHandler) {
+		super(buttonId, x, y, width, height, "");
+		stringOffset = 0;
+		stringHandler = label;
+		visHandler = visabilityHandler;
+	}
+
 	public SmallGuiButton(int buttonId, int x, int y, int width, int height, String label, int offset) {
 		super(buttonId, x, y, width, height, label);
 		stringOffset = offset;
+		stringHandler = null;
+		visHandler = null;
+	}
+
+	public SmallGuiButton(int buttonId, int x, int y, int width, int height, StringHandler label, int offset) {
+		super(buttonId, x, y, width, height, "");
+		stringOffset = offset;
+		stringHandler = label;
+		visHandler = null;
 	}
 
 	public SmallGuiButton(int i, int j, int k, String s) {
 		super(i, j, k, s);
 		stringOffset = 0;
-		// TODO Auto-generated constructor stub
+		stringHandler = null;
+		visHandler = null;
+	}
+
+	public SmallGuiButton(int buttonId, int x, int y, int width, int height, String label, VisabilityHandler visabilityHandler) {
+		super(buttonId, x, y, width, height, label);
+		stringOffset = 0;
+		stringHandler = null;
+		this.visHandler = visabilityHandler;
 	}
 
 	@Override
 	public void drawButton(Minecraft minecraft, int i, int j) {
+		if(visHandler != null) {
+			visible = visHandler.isVisible();
+		}
 		if (!visible) {
 			return;
+		}
+		if(stringHandler != null) {
+			displayString = stringHandler.getContent();
 		}
 		FontRenderer fontrenderer = minecraft.fontRenderer;
 		minecraft.renderEngine.bindTexture(GuiButton.buttonTextures);
@@ -64,4 +100,11 @@ public class SmallGuiButton extends GuiButton {
 		drawCenteredString(fontrenderer, displayString, xPosition + width / 2, yPosition + (height - 8) / 2 + stringOffset, color);
 	}
 
+	public interface StringHandler {
+		public String getContent();
+	}
+
+	public interface VisabilityHandler {
+		public boolean isVisible();
+	}
 }

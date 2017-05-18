@@ -8,7 +8,9 @@
 
 package logisticspipes.utils.gui;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
@@ -42,6 +44,7 @@ public final class GuiGraphics {
 	public static final ResourceLocation LOCK_ICON = new ResourceLocation("logisticspipes", "textures/gui/lock.png");
 	public static final ResourceLocation LINES_ICON = new ResourceLocation("logisticspipes", "textures/gui/lines.png");
 	public static final ResourceLocation STATS_ICON = new ResourceLocation("logisticspipes", "textures/gui/stats.png");
+	private static final Map<String, ResourceLocation> RESOURCE_CACHE = new HashMap<>();
 	public static float zLevel = 0.0F;
 
 	private GuiGraphics() {}
@@ -263,6 +266,25 @@ public final class GuiGraphics {
 		var9.addVertexWithUV(x, y + 8, GuiGraphics.zLevel, 0, 1);
 		var9.addVertexWithUV(x + 8, y + 8, GuiGraphics.zLevel, 1, 1);
 		var9.addVertexWithUV(x + 8, y, GuiGraphics.zLevel, 1, 0);
+		var9.addVertexWithUV(x, y, GuiGraphics.zLevel, 0, 0);
+		var9.draw();
+	}
+
+	public static void drawFromPath(Minecraft mc, int x, int y, int w, int h, String path) {
+		ResourceLocation resource = RESOURCE_CACHE.get(path);
+		if(resource == null) {
+			resource = new ResourceLocation("logisticspipes", path);
+			RESOURCE_CACHE.put(path, resource);
+		}
+		GuiGraphics.zLevel = 0;
+		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+		mc.renderEngine.bindTexture(resource);
+
+		Tessellator var9 = Tessellator.instance;
+		var9.startDrawingQuads();
+		var9.addVertexWithUV(x, y + h, GuiGraphics.zLevel, 0, 1);
+		var9.addVertexWithUV(x + w, y + h, GuiGraphics.zLevel, 1, 1);
+		var9.addVertexWithUV(x + w, y, GuiGraphics.zLevel, 1, 0);
 		var9.addVertexWithUV(x, y, GuiGraphics.zLevel, 0, 0);
 		var9.draw();
 	}

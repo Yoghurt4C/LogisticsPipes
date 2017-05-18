@@ -16,8 +16,9 @@ public class ItemLogisticsChips extends LogisticsItem {
 	public static final int ITEM_CHIP_ADVANCED_RAW = 3;
 	public static final int ITEM_CHIP_FPGA = 4;
 	public static final int ITEM_CHIP_FPGA_RAW = 5;
+	public static final int ITEM_CHIP_PROGRAMMABLE = 6;
 
-	public static final int MAX_DMG = 6;
+	public static final int MAX_DMG = 7;
 
 	private IIcon[] _icons;
 
@@ -59,6 +60,8 @@ public class ItemLogisticsChips extends LogisticsItem {
 				return "item.logisticsChips.fpga";
 			case ITEM_CHIP_FPGA_RAW:
 				return "item.logisticsChips.fpgaRaw";
+			case ITEM_CHIP_PROGRAMMABLE:
+				return "item.logisticsChips.programmableMicrocontroller";
 		}
 		return null;
 	}
@@ -77,5 +80,6 @@ public class ItemLogisticsChips extends LogisticsItem {
 		par3.add(new ItemStack(this, 1, ITEM_CHIP_ADVANCED_RAW));
 		par3.add(new ItemStack(this, 1, ITEM_CHIP_FPGA));
 		par3.add(new ItemStack(this, 1, ITEM_CHIP_FPGA_RAW));
+		par3.add(new ItemStack(this, 1, ITEM_CHIP_PROGRAMMABLE));
 	}
 }

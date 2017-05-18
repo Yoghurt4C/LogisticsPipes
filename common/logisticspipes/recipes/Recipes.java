@@ -64,7 +64,7 @@ public class Recipes implements IRecipeProvider {
 
 		ItemStack logisticsBlockFrame = new ItemStack(LogisticsPipes.LogisticsSolidBlock, 1, LogisticsSolidBlock.LOGISTICS_BLOCK_FRAME);
 
-		RecipeManager.craftingManager.addRecipe(logisticsBlockFrame, CraftingDependency.Basic,
+		RecipeManager.craftingManager.addRecipe(logisticsBlockFrame,
 				new RecipeManager.RecipeLayout(
 						"iri",
 						"   ",
@@ -73,7 +73,7 @@ public class Recipes implements IRecipeProvider {
 				new RecipeManager.RecipeIndex('r', "dustRedstone"),
 				new RecipeManager.RecipeIndex('w', "plankWood"));
 
-		RecipeManager.craftingManager.addRecipe(new ItemStack(LogisticsPipes.LogisticsSolidBlock, 1, LogisticsSolidBlock.SOLDERING_STATION), CraftingDependency.Basic,
+		RecipeManager.craftingManager.addRecipe(new ItemStack(LogisticsPipes.LogisticsSolidBlock, 1, LogisticsSolidBlock.SOLDERING_STATION),
 				new RecipeManager.RecipeLayout(
 						" c ",
 						"ifi",
@@ -84,7 +84,7 @@ public class Recipes implements IRecipeProvider {
 				new RecipeManager.RecipeIndex('f', logisticsBlockFrame),
 				new RecipeManager.RecipeIndex('b', Items.blaze_powder));
 
-		RecipeManager.craftingManager.addRecipe(new ItemStack(LogisticsPipes.LogisticsSolidBlock, 1, LogisticsSolidBlock.LOGISTICS_AUTOCRAFTING_TABLE), CraftingDependency.Basic,
+		RecipeManager.craftingManager.addRecipe(new ItemStack(LogisticsPipes.LogisticsSolidBlock, 1, LogisticsSolidBlock.LOGISTICS_AUTOCRAFTING_TABLE),
 				new RecipeManager.RecipeLayout(
 						" c ",
 						"wfw",
@@ -95,7 +95,7 @@ public class Recipes implements IRecipeProvider {
 				new RecipeManager.RecipeIndex('f', logisticsBlockFrame),
 				new RecipeManager.RecipeIndex('p', Blocks.piston));
 
-		RecipeManager.craftingManager.addRecipe(new ItemStack(LogisticsPipes.BasicTransportPipe, 8), CraftingDependency.Basic,
+		RecipeManager.craftingManager.addRecipe(new ItemStack(LogisticsPipes.BasicTransportPipe, 8),
 				new RecipeManager.RecipeLayout(
 						"iri",
 						"g g",

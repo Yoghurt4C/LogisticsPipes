@@ -22,7 +22,6 @@ import net.minecraft.tileentity.TileEntityChest;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.ChatComponentTranslation;
 import net.minecraft.world.ChunkCoordIntPair;
-
 import net.minecraftforge.client.event.GuiOpenEvent;
 import net.minecraftforge.client.event.TextureStitchEvent;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
@@ -31,7 +30,6 @@ import net.minecraftforge.event.entity.player.PlayerInteractEvent.Action;
 import net.minecraftforge.event.world.ChunkWatchEvent.UnWatch;
 import net.minecraftforge.event.world.ChunkWatchEvent.Watch;
 import net.minecraftforge.event.world.WorldEvent;
-
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.PlayerEvent.PlayerLoggedInEvent;
@@ -184,7 +182,6 @@ public class LogisticsEventListener {
 	public void onPlayerLogin(PlayerLoggedInEvent event) {
 		if (MainProxy.isServer(event.player.worldObj)) {
 			SimpleServiceLocator.securityStationManager.sendClientAuthorizationList(event.player);
-			SimpleServiceLocator.craftingPermissionManager.sendCraftingPermissionsToPlayer(event.player);
 		}
 
 		SimpleServiceLocator.serverBufferHandler.clear(event.player);

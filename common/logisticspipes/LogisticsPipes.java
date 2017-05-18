@@ -140,7 +140,6 @@ import logisticspipes.proxy.te.ThermalExpansionProgressProvider;
 import logisticspipes.recipes.ChipCraftingRecipes;
 import logisticspipes.recipes.CraftingPartRecipes;
 import logisticspipes.recipes.CraftingParts;
-import logisticspipes.recipes.CraftingPermissionManager;
 import logisticspipes.recipes.LPChipRecipes;
 import logisticspipes.recipes.RecipeManager;
 import logisticspipes.recipes.Recipes;

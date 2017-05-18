@@ -10,6 +10,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
 
 import net.minecraftforge.oredict.RecipeSorter;
+import net.minecraftforge.oredict.ShapedOreRecipe;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
 
 import lombok.AllArgsConstructor;
@@ -25,10 +26,6 @@ public class RecipeManager {
 	public static final LocalCraftingManager craftingManager = new LocalCraftingManager();
 
 	public static void registerRecipeClasses() {
-		RecipeSorter
-				.register("logisticspipes:shapedore", LPShapedOreRecipe.class, SHAPED, "after:minecraft:shaped before:minecraft:shapeless");
-		RecipeSorter
-				.register("logisticspipes:shapelessore", LPShapelessOreRecipe.class, SHAPELESS, "after:minecraft:shapeless");
 		RecipeSorter
 				.register("logisticspipes:shapelessreset", ShapelessResetRecipe.class, SHAPELESS, "after:minecraft:shapeless");
 		RecipeSorter
@@ -68,7 +65,7 @@ public class RecipeManager {
 		}
 
 		@SuppressWarnings("unchecked")
-		public void addRecipe(ItemStack stack, CraftingDependency dependent, Object... objects) {
+		public void addRecipe(ItemStack stack, Object... objects) {
 			List<Object> result = new ArrayList<>();
 			final boolean[] addRecipe = {true};
 			Arrays.stream(objects).forEach(o -> {
@@ -92,7 +89,7 @@ public class RecipeManager {
 				}
 			});
 			if(!addRecipe[0]) return;
-			craftingManager.getRecipeList().add(new LPShapedOreRecipe(stack, dependent, result.toArray()));
+			craftingManager.getRecipeList().add(new ShapedOreRecipe(stack, result.toArray()));
 		}
 
 		@SuppressWarnings("unchecked")
@@ -101,8 +98,8 @@ public class RecipeManager {
 		}
 
 		@SuppressWarnings("unchecked")
-		public void addShapelessRecipe(ItemStack stack, CraftingDependency dependent, Object... objects) {
-			craftingManager.getRecipeList().add(new LPShapelessOreRecipe(stack, dependent, objects));
+		public void addShapelessRecipe(ItemStack stack, Object... objects) {
+			craftingManager.getRecipeList().add(new ShapelessOreRecipe(stack, objects));
 		}
 
 		@SuppressWarnings("unchecked")

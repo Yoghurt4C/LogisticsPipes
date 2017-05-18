@@ -273,6 +273,15 @@ item.upgrade.info.requestblock=Request Block
 item.upgrade.info.chassi=Chassi
 item.upgrade.info.basic=Basic
 
+#Chips
+item.logisticsChips.basicMicrocontroller=Basic Microcontroller
+item.logisticsChips.basicMicrocontrollerRaw=Raw Basic Microcontroller
+item.logisticsChips.advancedMicrocontroller=Advanced Microcontroller
+item.logisticsChips.advancedMicrocontrollerRaw=Raw Advanced Microcontroller
+item.logisticsChips.fpga=FPGA
+item.logisticsChips.fpga=Raw FPGA
+item.logisticsChips.programmableMicrocontroller=Programmable Microcontroller
+
 # Blocks
 tile.logisticsblankblock=Logistics Block Frame
 tile.solderingstation=Soldering Station
@@ -284,6 +293,7 @@ tile.logisticsbcpowerprovider=Logistics MJ Power Provider
 tile.logisticsic2powerprovider=Logistics EU Power Provider
 tile.logisticstepowerprovider=Logistics RF Power Provider
 tile.logisticsstatisticstable=Logistics Statistics Table
+tile.logisticsdevelopmentstation=Logistics Development Station
 
 # Misc
 itemGroup.Logistics_Pipes=Logistics Pipes

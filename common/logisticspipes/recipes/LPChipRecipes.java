@@ -15,7 +15,7 @@ public class LPChipRecipes implements IRecipeProvider {
 	public void loadRecipes() {
 		boolean copperExsists = !OreDictionary.getOres("ingotCopper", false).isEmpty();
 
-		RecipeManager.craftingManager.addRecipe(new ItemStack(LogisticsPipes.LogisticsChips, 2, ItemLogisticsChips.ITEM_CHIP_BASIC_RAW), CraftingDependency.Basic,
+		RecipeManager.craftingManager.addRecipe(new ItemStack(LogisticsPipes.LogisticsChips, 2, ItemLogisticsChips.ITEM_CHIP_BASIC_RAW),
 				new RecipeManager.RecipeLayoutSmall(
 						"sg",
 						"gs"
@@ -25,7 +25,7 @@ public class LPChipRecipes implements IRecipeProvider {
 
 		GameRegistry.addSmelting(new ItemStack(LogisticsPipes.LogisticsChips, 1, ItemLogisticsChips.ITEM_CHIP_BASIC_RAW), new ItemStack(LogisticsPipes.LogisticsChips, 1, ItemLogisticsChips.ITEM_CHIP_BASIC), 0);
 
-		RecipeManager.craftingManager.addRecipe(new ItemStack(LogisticsPipes.LogisticsChips, 2, ItemLogisticsChips.ITEM_CHIP_ADVANCED_RAW), CraftingDependency.Basic,
+		RecipeManager.craftingManager.addRecipe(new ItemStack(LogisticsPipes.LogisticsChips, 2, ItemLogisticsChips.ITEM_CHIP_ADVANCED_RAW),
 				new RecipeManager.RecipeLayoutSmall(
 						"cd",
 						"dc"
@@ -35,7 +35,7 @@ public class LPChipRecipes implements IRecipeProvider {
 
 		GameRegistry.addSmelting(new ItemStack(LogisticsPipes.LogisticsChips, 1, ItemLogisticsChips.ITEM_CHIP_ADVANCED_RAW), new ItemStack(LogisticsPipes.LogisticsChips, 1, ItemLogisticsChips.ITEM_CHIP_ADVANCED), 0);
 
-		RecipeManager.craftingManager.addRecipe(new ItemStack(LogisticsPipes.LogisticsChips, 16, ItemLogisticsChips.ITEM_CHIP_FPGA_RAW), CraftingDependency.Basic,
+		RecipeManager.craftingManager.addRecipe(new ItemStack(LogisticsPipes.LogisticsChips, 16, ItemLogisticsChips.ITEM_CHIP_FPGA_RAW),
 				new RecipeManager.RecipeLayout(
 						"sds",
 						"grg",

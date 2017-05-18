@@ -11,7 +11,7 @@ public class ChipCraftingRecipes extends CraftingPartRecipes {
 	protected void loadRecipes(CraftingParts parts) {
 		ItemStack logisticsBlockFrame = new ItemStack(LogisticsPipes.LogisticsSolidBlock, 1, LogisticsSolidBlock.LOGISTICS_BLOCK_FRAME);
 
-		RecipeManager.craftingManager.addRecipe(new ItemStack(LogisticsPipes.LogisticsSolidBlock, 1, LogisticsSolidBlock.LOGISTICS_POWER_JUNCTION), CraftingDependency.Basic,
+		RecipeManager.craftingManager.addRecipe(new ItemStack(LogisticsPipes.LogisticsSolidBlock, 1, LogisticsSolidBlock.LOGISTICS_POWER_JUNCTION),
 				new RecipeManager.RecipeLayout(
 						" c ",
 						"rfr",
@@ -23,7 +23,7 @@ public class ChipCraftingRecipes extends CraftingPartRecipes {
 				new RecipeManager.RecipeIndex('f', logisticsBlockFrame),
 				new RecipeManager.RecipeIndex('b', Blocks.redstone_block));
 
-		RecipeManager.craftingManager.addRecipe(new ItemStack(LogisticsPipes.LogisticsSolidBlock, 1, LogisticsSolidBlock.LOGISTICS_SECURITY_STATION), CraftingDependency.Basic,
+		RecipeManager.craftingManager.addRecipe(new ItemStack(LogisticsPipes.LogisticsSolidBlock, 1, LogisticsSolidBlock.LOGISTICS_SECURITY_STATION),
 				new RecipeManager.RecipeLayout(
 						" g ",
 						"rfr",
@@ -34,7 +34,7 @@ public class ChipCraftingRecipes extends CraftingPartRecipes {
 				new RecipeManager.RecipeIndex('f', logisticsBlockFrame),
 				new RecipeManager.RecipeIndex('i', "ingotIron"));
 
-		RecipeManager.craftingManager.addRecipe(new ItemStack(LogisticsPipes.LogisticsSolidBlock, 1, LogisticsSolidBlock.LOGISTICS_STATISTICS_TABLE), CraftingDependency.Basic,
+		RecipeManager.craftingManager.addRecipe(new ItemStack(LogisticsPipes.LogisticsSolidBlock, 1, LogisticsSolidBlock.LOGISTICS_STATISTICS_TABLE),
 				new RecipeManager.RecipeLayout(
 						" g ",
 						"rfr",
@@ -45,7 +45,7 @@ public class ChipCraftingRecipes extends CraftingPartRecipes {
 				new RecipeManager.RecipeIndex('f', logisticsBlockFrame),
 				new RecipeManager.RecipeIndex('i', "ingotIron"));
 
-		RecipeManager.craftingManager.addRecipe(new ItemStack(LogisticsPipes.LogisticsSolidBlock, 1, LogisticsSolidBlock.LOGISTICS_FUZZYCRAFTING_TABLE), CraftingDependency.Basic,
+		RecipeManager.craftingManager.addRecipe(new ItemStack(LogisticsPipes.LogisticsSolidBlock, 1, LogisticsSolidBlock.LOGISTICS_FUZZYCRAFTING_TABLE),
 				new RecipeManager.RecipeLayoutSmall(
 						"c",
 						"t"
@@ -53,7 +53,7 @@ public class ChipCraftingRecipes extends CraftingPartRecipes {
 				new RecipeManager.RecipeIndex('c', parts.getChipBasic()),
 				new RecipeManager.RecipeIndex('t', new ItemStack(LogisticsPipes.LogisticsSolidBlock, 1, LogisticsSolidBlock.LOGISTICS_AUTOCRAFTING_TABLE)));
 
-		RecipeManager.craftingManager.addRecipe(new ItemStack(LogisticsPipes.logisticsRequestTable), CraftingDependency.Basic,
+		RecipeManager.craftingManager.addRecipe(new ItemStack(LogisticsPipes.logisticsRequestTable),
 				new RecipeManager.RecipeLayout(
 						" c ",
 						"rfp",
@@ -65,7 +65,7 @@ public class ChipCraftingRecipes extends CraftingPartRecipes {
 				new RecipeManager.RecipeIndex('k', Blocks.chest),
 				new RecipeManager.RecipeIndex('p', LogisticsPipes.LogisticsCraftingPipeMk1));
 
-		RecipeManager.craftingManager.addRecipe(new ItemStack(LogisticsPipes.LogisticsBasicPipe), CraftingDependency.Basic,
+		RecipeManager.craftingManager.addRecipe(new ItemStack(LogisticsPipes.LogisticsBasicPipe),
 				new RecipeManager.RecipeLayoutSmall(
 						"f",
 						"p"

@@ -38,7 +38,6 @@ import logisticspipes.proxy.progressprovider.MachineProgressProvider;
 import logisticspipes.proxy.specialconnection.SpecialPipeConnection;
 import logisticspipes.proxy.specialconnection.SpecialTileConnection;
 import logisticspipes.proxy.specialtankhandler.SpecialTankHandler;
-import logisticspipes.recipes.CraftingPermissionManager;
 import logisticspipes.renderer.newpipe.GLRenderListHandler;
 import logisticspipes.routing.IRouterManager;
 import logisticspipes.routing.pathfinder.PipeInformationManager;
@@ -169,12 +168,6 @@ public final class SimpleServiceLocator {
 
 	public static void setNEIProxy(INEIProxy proxy) {
 		SimpleServiceLocator.neiProxy = proxy;
-	}
-
-	public static CraftingPermissionManager craftingPermissionManager;
-
-	public static void setCraftingPermissionManager(CraftingPermissionManager manager) {
-		SimpleServiceLocator.craftingPermissionManager = manager;
 	}
 
 	public static IFactorizationProxy factorizationProxy;
