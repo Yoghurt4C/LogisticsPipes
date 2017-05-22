@@ -7,6 +7,7 @@ import logisticspipes.asm.ModDependentMethod;
 import logisticspipes.interfaces.IRotationProvider;
 import logisticspipes.network.PacketHandler;
 import logisticspipes.network.packets.block.RequestRotationPacket;
+import logisticspipes.pipes.basic.CoreRoutedPipe;
 import logisticspipes.pipes.basic.LogisticsTileGenericPipe;
 import logisticspipes.proxy.MainProxy;
 import logisticspipes.proxy.SimpleServiceLocator;
@@ -16,6 +17,7 @@ import logisticspipes.proxy.computers.interfaces.ILPCCTypeHolder;
 import logisticspipes.proxy.computers.wrapper.CCObjectWrapper;
 import logisticspipes.proxy.opencomputers.IOCTile;
 import logisticspipes.proxy.opencomputers.asm.BaseWrapperClass;
+import network.rs485.logisticspipes.world.CoordinateUtils;
 import network.rs485.logisticspipes.world.DoubleCoordinates;
 import network.rs485.logisticspipes.world.WorldCoordinatesWrapper;
 
@@ -179,5 +181,24 @@ public class LogisticsSolidTileEntity extends TileEntity implements ILPCCTypeHol
 	@Override
 	public Object getCCType() {
 		return ccType;
+	}
+
+	protected boolean usePowerFromAdjacentLTGP(int amount) {
+		for (ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {
+			DoubleCoordinates pos = CoordinateUtils.add(new DoubleCoordinates(this), dir);
+			TileEntity tile = pos.getTileEntity(getWorldObj());
+			if (!(tile instanceof LogisticsTileGenericPipe)) {
+				continue;
+			}
+			LogisticsTileGenericPipe tPipe = (LogisticsTileGenericPipe) tile;
+			if (!(tPipe.pipe instanceof CoreRoutedPipe)) {
+				continue;
+			}
+			CoreRoutedPipe pipe = (CoreRoutedPipe) tPipe.pipe;
+			if (pipe.useEnergy(amount)) {
+				return true;
+			}
+		}
+		return false;
 	}
 }

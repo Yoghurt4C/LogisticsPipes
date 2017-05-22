@@ -185,7 +185,7 @@ import network.rs485.grow.TickExecutor;
 				"after:GregTech_Addon;" +
 				"after:AppliedEnergistics;" +
 				"after:ThermalExpansion;" +
-		"after:BetterStorage")
+				"after:BetterStorage")
 public class LogisticsPipes {
 
 	//@formatter:on
@@ -294,7 +294,7 @@ public class LogisticsPipes {
 	public static Item LogisticsFluidContainer;
 	public static Item LogisticsBrokenItem;
 	public static Item LogisticsPipeControllerItem;
-	public static Item LogisticsChips;
+	public static ItemLogisticsChips LogisticsChips;
 
 	// Logistics Blocks
 	public static Block LogisticsSolidBlock;
@@ -329,7 +329,6 @@ public class LogisticsPipes {
 		SimpleServiceLocator.setSpecialConnectionHandler(new SpecialTileConnection());
 		SimpleServiceLocator.setLogisticsFluidManager(new LogisticsFluidManager());
 		SimpleServiceLocator.setSpecialTankHandler(new SpecialTankHandler());
-		SimpleServiceLocator.setCraftingPermissionManager(new CraftingPermissionManager());
 		SimpleServiceLocator.setMachineProgressProvider(new MachineProgressProvider());
 		SimpleServiceLocator.setRoutedItemHelper(new RoutedItemHelper());
 

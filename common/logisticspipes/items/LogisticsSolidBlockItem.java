@@ -43,8 +43,8 @@ public class LogisticsSolidBlockItem extends ItemBlock {
 				return "tile.logisticsic2powerprovider";
 			case LogisticsSolidBlock.LOGISTICS_BLOCK_FRAME:
 				return "tile.logisticsblankblock";
-			case LogisticsSolidBlock.LOGISTICS_DEVELOPMENT_STATION:
-				return "tile.logisticsdevelopmentstation";
+			case LogisticsSolidBlock.LOGISTICS_RESEARCH_TABLE:
+				return "tile.logisticsResearchTable";
 		}
 		return super.getUnlocalizedName(stack);
 	}
@@ -80,7 +80,7 @@ public class LogisticsSolidBlockItem extends ItemBlock {
 		if (SimpleServiceLocator.IC2Proxy.hasIC2()) {
 			par3List.add(new ItemStack(this, 1, LogisticsSolidBlock.LOGISTICS_IC2_POWERPROVIDER));
 		}
-		par3List.add(new ItemStack(this, 1, LogisticsSolidBlock.LOGISTICS_DEVELOPMENT_STATION));
+		par3List.add(new ItemStack(this, 1, LogisticsSolidBlock.LOGISTICS_RESEARCH_TABLE));
 	}
 
 	@Override

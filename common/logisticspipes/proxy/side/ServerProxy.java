@@ -4,7 +4,7 @@ import java.io.File;
 import java.util.List;
 
 import logisticspipes.LogisticsPipes;
-import logisticspipes.blocks.LogisticsDevelopmentStationTileEntity;
+import logisticspipes.blocks.LogisticsReseachTableTileEntity;
 import logisticspipes.blocks.LogisticsSecurityTileEntity;
 import logisticspipes.blocks.LogisticsSolderingTileEntity;
 import logisticspipes.blocks.crafting.LogisticsCraftingTableTileEntity;
@@ -71,7 +71,7 @@ public class ServerProxy implements IProxy {
 		GameRegistry.registerTileEntity(LogisticsIC2PowerProviderTileEntity.class, "logisticspipes.blocks.powertile.LogisticsIC2PowerProviderTileEntity");
 		GameRegistry.registerTileEntity(LogisticsSecurityTileEntity.class, "logisticspipes.blocks.LogisticsSecurityTileEntity");
 		GameRegistry.registerTileEntity(LogisticsCraftingTableTileEntity.class, "logisticspipes.blocks.crafting.LogisticsCraftingTableTileEntity");
-		GameRegistry.registerTileEntity(LogisticsDevelopmentStationTileEntity.class, "logisticspipes.blocks.LogisticsDevelopmentStationTileEntity");
+		GameRegistry.registerTileEntity(LogisticsReseachTableTileEntity.class, "logisticspipes.blocks.LogisticsReseachTableTileEntity");
 		GameRegistry.registerTileEntity(LogisticsTileGenericPipe.class, LogisticsPipes.logisticsTileGenericPipeMapping);
 		GameRegistry.registerTileEntity(LogisticsStatisticsTileEntity.class, "logisticspipes.blocks.stats.LogisticsStatisticsTileEntity");
 		GameRegistry.registerTileEntity(LogisticsTileGenericSubMultiBlock.class, "logisticspipes.pipes.basic.LogisticsTileGenericSubMultiBlock");

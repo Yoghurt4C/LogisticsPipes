@@ -22,7 +22,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 import lombok.Getter;
 import org.lwjgl.input.Keyboard;
 
-import logisticspipes.blocks.LogisticsDevelopmentStationTileEntity;
+import logisticspipes.blocks.LogisticsReseachTableTileEntity;
 import logisticspipes.interfaces.IPipeServiceProvider;
 import logisticspipes.interfaces.IWorldProvider;
 import logisticspipes.logisticspipes.ItemModuleInformationManager;
@@ -145,10 +145,6 @@ public class ItemModule extends LogisticsItem {
 			return moduleClass;
 		}
 
-		private int getId() {
-			return id;
-		}
-
 		private IIcon getIcon() {
 			return moduleIcon;
 		}
@@ -166,6 +162,10 @@ public class ItemModule extends LogisticsItem {
 				}
 			}
 		}
+
+		public String getILogisticsModuleClassSimpleName() {
+			return getILogisticsModuleClass().getSimpleName();
+		}
 	}
 
 	public ItemModule() {
@@ -174,40 +174,40 @@ public class ItemModule extends LogisticsItem {
 
 	public void loadModules() {
 		registerModule(ItemModule.BLANK, null, null);
-		registerModule(ItemModule.ITEMSINK, ModuleItemSink.class, LogisticsDevelopmentStationTileEntity.DevelopmentModules.Basic);
-		registerModule(ItemModule.PASSIVE_SUPPLIER, ModulePassiveSupplier.class, LogisticsDevelopmentStationTileEntity.DevelopmentModules.Basic);
-		registerModule(ItemModule.EXTRACTOR, ModuleExtractor.class, LogisticsDevelopmentStationTileEntity.DevelopmentModules.Basic);
-		registerModule(ItemModule.POLYMORPHIC_ITEMSINK, ModulePolymorphicItemSink.class, LogisticsDevelopmentStationTileEntity.DevelopmentModules.Basic);
-		registerModule(ItemModule.QUICKSORT, ModuleQuickSort.class, LogisticsDevelopmentStationTileEntity.DevelopmentModules.Basic);
-		registerModule(ItemModule.TERMINUS, ModuleTerminus.class, LogisticsDevelopmentStationTileEntity.DevelopmentModules.Basic);
-		registerModule(ItemModule.ADVANCED_EXTRACTOR, ModuleAdvancedExtractor.class, LogisticsDevelopmentStationTileEntity.DevelopmentModules.Advanced);
-		registerModule(ItemModule.EXTRACTOR_MK2, ModuleExtractorMk2.class, LogisticsDevelopmentStationTileEntity.DevelopmentModules.HighSpeed);
-		registerModule(ItemModule.ADVANCED_EXTRACTOR_MK2, ModuleAdvancedExtractorMK2.class, LogisticsDevelopmentStationTileEntity.DevelopmentModules.Advanced);
-		registerModule(ItemModule.EXTRACTOR_MK3, ModuleExtractorMk3.class, LogisticsDevelopmentStationTileEntity.DevelopmentModules.HighSpeed);
-		registerModule(ItemModule.ADVANCED_EXTRACTOR_MK3, ModuleAdvancedExtractorMK3.class, LogisticsDevelopmentStationTileEntity.DevelopmentModules.HighSpeed);
-		registerModule(ItemModule.PROVIDER, ModuleProvider.class, LogisticsDevelopmentStationTileEntity.DevelopmentModules.Advanced);
-		registerModule(ItemModule.PROVIDER_MK2, ModuleProviderMk2.class, LogisticsDevelopmentStationTileEntity.DevelopmentModules.HighSpeed);
-		registerModule(ItemModule.ELECTRICMANAGER, ModuleElectricManager.class, LogisticsDevelopmentStationTileEntity.DevelopmentModules.Compatibility);
-		registerModule(ItemModule.ELECTRICBUFFER, ModuleElectricBuffer.class, LogisticsDevelopmentStationTileEntity.DevelopmentModules.Compatibility);
-		registerModule(ItemModule.BEEANALYZER, ModuleApiaristAnalyser.class, LogisticsDevelopmentStationTileEntity.DevelopmentModules.Compatibility);
-		registerModule(ItemModule.BEESINK, ModuleApiaristSink.class, LogisticsDevelopmentStationTileEntity.DevelopmentModules.Compatibility);
-		registerModule(ItemModule.APIARISTREFILLER, ModuleApiaristRefiller.class, LogisticsDevelopmentStationTileEntity.DevelopmentModules.Compatibility);
-		registerModule(ItemModule.APIARISTTERMINUS, ModuleApiaristTerminus.class, LogisticsDevelopmentStationTileEntity.DevelopmentModules.Compatibility);
-		registerModule(ItemModule.MODBASEDITEMSINK, ModuleModBasedItemSink.class, LogisticsDevelopmentStationTileEntity.DevelopmentModules.Advanced);
-		registerModule(ItemModule.OREDICTITEMSINK, ModuleOreDictItemSink.class, LogisticsDevelopmentStationTileEntity.DevelopmentModules.Advanced);
-		registerModule(ItemModule.THAUMICASPECTSINK, ModuleThaumicAspectSink.class, LogisticsDevelopmentStationTileEntity.DevelopmentModules.Compatibility);
-		registerModule(ItemModule.ENCHANTMENTSINK, ModuleEnchantmentSink.class, LogisticsDevelopmentStationTileEntity.DevelopmentModules.Advanced);
-		registerModule(ItemModule.ENCHANTMENTSINK_MK2, ModuleEnchantmentSinkMK2.class, LogisticsDevelopmentStationTileEntity.DevelopmentModules.HighSpeed);
-		registerModule(ItemModule.CC_BASED_QUICKSORT, ModuleCCBasedQuickSort.class, LogisticsDevelopmentStationTileEntity.DevelopmentModules.Compatibility);
-		registerModule(ItemModule.CC_BASED_ITEMSINK, ModuleCCBasedItemSink.class, LogisticsDevelopmentStationTileEntity.DevelopmentModules.Compatibility);
-		registerModule(ItemModule.CRAFTER, ModuleCrafter.class, LogisticsDevelopmentStationTileEntity.DevelopmentModules.Intelligent);
-		registerModule(ItemModule.CRAFTER_MK2, ModuleCrafterMK2.class, LogisticsDevelopmentStationTileEntity.DevelopmentModules.Intelligent);
-		registerModule(ItemModule.CRAFTER_MK3, ModuleCrafterMK3.class, LogisticsDevelopmentStationTileEntity.DevelopmentModules.Intelligent);
-		registerModule(ItemModule.ACTIVE_SUPPLIER, ModuleActiveSupplier.class, LogisticsDevelopmentStationTileEntity.DevelopmentModules.Intelligent);
-		registerModule(ItemModule.CREATIVETABBASEDITEMSINK, ModuleCreativeTabBasedItemSink.class, LogisticsDevelopmentStationTileEntity.DevelopmentModules.Advanced);
+		registerModule(ItemModule.ITEMSINK, ModuleItemSink.class, LogisticsReseachTableTileEntity.ResearchTiers.Basic);
+		registerModule(ItemModule.PASSIVE_SUPPLIER, ModulePassiveSupplier.class, LogisticsReseachTableTileEntity.ResearchTiers.Basic);
+		registerModule(ItemModule.EXTRACTOR, ModuleExtractor.class, LogisticsReseachTableTileEntity.ResearchTiers.Basic);
+		registerModule(ItemModule.POLYMORPHIC_ITEMSINK, ModulePolymorphicItemSink.class, LogisticsReseachTableTileEntity.ResearchTiers.Basic);
+		registerModule(ItemModule.QUICKSORT, ModuleQuickSort.class, LogisticsReseachTableTileEntity.ResearchTiers.Basic);
+		registerModule(ItemModule.TERMINUS, ModuleTerminus.class, LogisticsReseachTableTileEntity.ResearchTiers.Basic);
+		registerModule(ItemModule.ADVANCED_EXTRACTOR, ModuleAdvancedExtractor.class, LogisticsReseachTableTileEntity.ResearchTiers.Advanced);
+		registerModule(ItemModule.EXTRACTOR_MK2, ModuleExtractorMk2.class, LogisticsReseachTableTileEntity.ResearchTiers.HighSpeed);
+		registerModule(ItemModule.ADVANCED_EXTRACTOR_MK2, ModuleAdvancedExtractorMK2.class, LogisticsReseachTableTileEntity.ResearchTiers.Advanced);
+		registerModule(ItemModule.EXTRACTOR_MK3, ModuleExtractorMk3.class, LogisticsReseachTableTileEntity.ResearchTiers.HighSpeed);
+		registerModule(ItemModule.ADVANCED_EXTRACTOR_MK3, ModuleAdvancedExtractorMK3.class, LogisticsReseachTableTileEntity.ResearchTiers.HighSpeed);
+		registerModule(ItemModule.PROVIDER, ModuleProvider.class, LogisticsReseachTableTileEntity.ResearchTiers.Advanced);
+		registerModule(ItemModule.PROVIDER_MK2, ModuleProviderMk2.class, LogisticsReseachTableTileEntity.ResearchTiers.HighSpeed);
+		registerModule(ItemModule.ELECTRICMANAGER, ModuleElectricManager.class, LogisticsReseachTableTileEntity.ResearchTiers.Compatibility);
+		registerModule(ItemModule.ELECTRICBUFFER, ModuleElectricBuffer.class, LogisticsReseachTableTileEntity.ResearchTiers.Compatibility);
+		registerModule(ItemModule.BEEANALYZER, ModuleApiaristAnalyser.class, LogisticsReseachTableTileEntity.ResearchTiers.Compatibility);
+		registerModule(ItemModule.BEESINK, ModuleApiaristSink.class, LogisticsReseachTableTileEntity.ResearchTiers.Compatibility);
+		registerModule(ItemModule.APIARISTREFILLER, ModuleApiaristRefiller.class, LogisticsReseachTableTileEntity.ResearchTiers.Compatibility);
+		registerModule(ItemModule.APIARISTTERMINUS, ModuleApiaristTerminus.class, LogisticsReseachTableTileEntity.ResearchTiers.Compatibility);
+		registerModule(ItemModule.MODBASEDITEMSINK, ModuleModBasedItemSink.class, LogisticsReseachTableTileEntity.ResearchTiers.Advanced);
+		registerModule(ItemModule.OREDICTITEMSINK, ModuleOreDictItemSink.class, LogisticsReseachTableTileEntity.ResearchTiers.Advanced);
+		registerModule(ItemModule.THAUMICASPECTSINK, ModuleThaumicAspectSink.class, LogisticsReseachTableTileEntity.ResearchTiers.Compatibility);
+		registerModule(ItemModule.ENCHANTMENTSINK, ModuleEnchantmentSink.class, LogisticsReseachTableTileEntity.ResearchTiers.Advanced);
+		registerModule(ItemModule.ENCHANTMENTSINK_MK2, ModuleEnchantmentSinkMK2.class, LogisticsReseachTableTileEntity.ResearchTiers.HighSpeed);
+		registerModule(ItemModule.CC_BASED_QUICKSORT, ModuleCCBasedQuickSort.class, LogisticsReseachTableTileEntity.ResearchTiers.Compatibility);
+		registerModule(ItemModule.CC_BASED_ITEMSINK, ModuleCCBasedItemSink.class, LogisticsReseachTableTileEntity.ResearchTiers.Compatibility);
+		registerModule(ItemModule.CRAFTER, ModuleCrafter.class, LogisticsReseachTableTileEntity.ResearchTiers.Intelligent);
+		registerModule(ItemModule.CRAFTER_MK2, ModuleCrafterMK2.class, LogisticsReseachTableTileEntity.ResearchTiers.Intelligent);
+		registerModule(ItemModule.CRAFTER_MK3, ModuleCrafterMK3.class, LogisticsReseachTableTileEntity.ResearchTiers.Intelligent);
+		registerModule(ItemModule.ACTIVE_SUPPLIER, ModuleActiveSupplier.class, LogisticsReseachTableTileEntity.ResearchTiers.Intelligent);
+		registerModule(ItemModule.CREATIVETABBASEDITEMSINK, ModuleCreativeTabBasedItemSink.class, LogisticsReseachTableTileEntity.ResearchTiers.Advanced);
 	}
 
-	public void registerModule(int id, Class<? extends LogisticsModule> moduleClass, LogisticsDevelopmentStationTileEntity.DevelopmentModules stage) {
+	public void registerModule(int id, Class<? extends LogisticsModule> moduleClass, LogisticsReseachTableTileEntity.ResearchTiers stage) {
 		boolean flag = true;
 		for (Module module : modules) {
 			if (module.getId() == id) {
@@ -234,6 +234,10 @@ public class ItemModule extends LogisticsItem {
 			array[i++] = module.getId();
 		}
 		return array;
+	}
+
+	public Module getModuleForId(int id) {
+		return modules.stream().filter(mod -> mod.getId() == id).findAny().orElse(null);
 	}
 
 	@Override

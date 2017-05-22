@@ -230,26 +230,13 @@ public class LogisticsSolderingTileEntity extends LogisticsSolidTileEntity imple
 				}
 				usedEnergy = true;
 			} else {
-				for (ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {
-					DoubleCoordinates pos = CoordinateUtils.add(new DoubleCoordinates(this), dir);
-					TileEntity tile = pos.getTileEntity(getWorldObj());
-					if (!(tile instanceof LogisticsTileGenericPipe)) {
-						continue;
+				if (usePowerFromAdjacentLTGP(50)) {
+					heat += 5;
+					if (heat > 100) {
+						heat = 100;
 					}
-					LogisticsTileGenericPipe tPipe = (LogisticsTileGenericPipe) tile;
-					if (!(tPipe.pipe instanceof CoreRoutedPipe)) {
-						continue;
-					}
-					CoreRoutedPipe pipe = (CoreRoutedPipe) tPipe.pipe;
-					if (pipe.useEnergy(50)) {
-						heat += 5;
-						if (heat > 100) {
-							heat = 100;
-						}
-						updateHeat();
-						usedEnergy = true;
-						break;
-					}
+					updateHeat();
+					usedEnergy = true;
 				}
 			}
 			if (!usedEnergy && getWorldObj().getTotalWorldTime() % 5 == 0) {

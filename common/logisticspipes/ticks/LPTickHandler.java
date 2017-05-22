@@ -41,7 +41,6 @@ public class LPTickHandler {
 	@SubscribeEvent
 	public void serverTick(ServerTickEvent event) {
 		HudUpdateTick.tick();
-		SimpleServiceLocator.craftingPermissionManager.tick();
 		SimpleServiceLocator.serverBufferHandler.serverTick(event);
 		MainProxy.proxy.tickServer();
 		LPTickHandler.adjChecksDone = 0;

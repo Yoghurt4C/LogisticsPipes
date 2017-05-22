@@ -3,7 +3,10 @@ package logisticspipes.recipes;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -18,6 +21,8 @@ import lombok.Getter;
 import static net.minecraftforge.oredict.RecipeSorter.Category.SHAPED;
 import static net.minecraftforge.oredict.RecipeSorter.Category.SHAPELESS;
 
+import logisticspipes.LogisticsPipes;
+import logisticspipes.blocks.LogisticsSolidBlock;
 import logisticspipes.items.RemoteOrderer;
 
 public class RecipeManager {
@@ -34,6 +39,17 @@ public class RecipeManager {
 
 	public static void loadRecipes() {
 		recipeProvider.forEach(IRecipeProvider::loadRecipes);
+
+
+		RecipeManager.craftingManager.addRecipe(new ItemStack(LogisticsPipes.logisticsRequestTable),
+			new RecipeManager.RecipeLayout(
+					"r",
+					"p",
+					"g"
+			),
+			new RecipeManager.RecipeIndex('r', "dustRedstone"),
+			new RecipeManager.RecipeIndex('p', Items.paper),
+			new RecipeManager.RecipeIndex('g', "ingotGold"));
 	}
 
 	@AllArgsConstructor
@@ -64,10 +80,24 @@ public class RecipeManager {
 		public LocalCraftingManager() {
 		}
 
+		public void addModuleRecipe(ItemStack stack, Object... objects) {
+			List<Object> result = new ArrayList<>();
+			final boolean[] addRecipe = {true};
+			fillList(addRecipe, result, objects);
+			if(!addRecipe[0]) return;
+			craftingManager.getRecipeList().add(new ModuleRecipe(stack, result.toArray()));
+		}
+
 		@SuppressWarnings("unchecked")
 		public void addRecipe(ItemStack stack, Object... objects) {
 			List<Object> result = new ArrayList<>();
 			final boolean[] addRecipe = {true};
+			fillList(addRecipe, result, objects);
+			if(!addRecipe[0]) return;
+			craftingManager.getRecipeList().add(new ShapedOreRecipe(stack, result.toArray()));
+		}
+
+		private void fillList(boolean[] addRecipe, List<Object> result, Object[] objects) {
 			Arrays.stream(objects).forEach(o -> {
 				if(!addRecipe[0]) return;
 				if (o instanceof RecipeLayout) {
@@ -88,8 +118,6 @@ public class RecipeManager {
 					result.add(o);
 				}
 			});
-			if(!addRecipe[0]) return;
-			craftingManager.getRecipeList().add(new ShapedOreRecipe(stack, result.toArray()));
 		}
 
 		@SuppressWarnings("unchecked")

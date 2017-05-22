@@ -1,5 +1,6 @@
 package logisticspipes.recipes;
 
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 
 import net.minecraftforge.oredict.OreDictionary;
@@ -8,6 +9,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 
 import logisticspipes.LogisticsPipes;
 import logisticspipes.items.ItemLogisticsChips;
+import logisticspipes.items.ItemModule;
 
 public class LPChipRecipes implements IRecipeProvider {
 
@@ -48,5 +50,18 @@ public class LPChipRecipes implements IRecipeProvider {
 				new RecipeManager.RecipeIndex('l', "gemLapis"));
 
 		GameRegistry.addSmelting(new ItemStack(LogisticsPipes.LogisticsChips, 1, ItemLogisticsChips.ITEM_CHIP_FPGA_RAW), new ItemStack(LogisticsPipes.LogisticsChips, 1, ItemLogisticsChips.ITEM_CHIP_FPGA), 0);
+
+		RecipeManager.craftingManager.addRecipe(new ItemStack(LogisticsPipes.LogisticsChips, 1, ItemLogisticsChips.ITEM_CHIP_PROGRAMMABLE),
+				new RecipeManager.RecipeLayout(
+						" s ",
+						"ifi",
+						"gmg"
+				),
+				new RecipeManager.RecipeIndex('s', Items.gunpowder),
+				new RecipeManager.RecipeIndex('i', "ingotIron"),
+				new RecipeManager.RecipeIndex('g', "ingotGold"),
+				new RecipeManager.RecipeIndex('f', new ItemStack(LogisticsPipes.LogisticsChips, 1, ItemLogisticsChips.ITEM_CHIP_FPGA)),
+				new RecipeManager.RecipeIndex('m', new ItemStack(LogisticsPipes.ModuleItem, 1, ItemModule.BLANK)));
+
 	}
 }

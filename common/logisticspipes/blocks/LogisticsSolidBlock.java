@@ -38,7 +38,7 @@ public class LogisticsSolidBlock extends BlockContainer {
 	public static final int LOGISTICS_AUTOCRAFTING_TABLE = 3;
 	public static final int LOGISTICS_FUZZYCRAFTING_TABLE = 4;
 	public static final int LOGISTICS_STATISTICS_TABLE = 5;
-	public static final int LOGISTICS_DEVELOPMENT_STATION = 6;
+	public static final int LOGISTICS_RESEARCH_TABLE = 6;
 
 	//Power Provider
 	public static final int LOGISTICS_RF_POWERPROVIDER = 11;
@@ -160,8 +160,8 @@ public class LogisticsSolidBlock extends BlockContainer {
 				return new LogisticsRFPowerProviderTileEntity();
 			case LOGISTICS_IC2_POWERPROVIDER:
 				return new LogisticsIC2PowerProviderTileEntity();
-			case LOGISTICS_DEVELOPMENT_STATION:
-				return new LogisticsDevelopmentStationTileEntity();
+			case LOGISTICS_RESEARCH_TABLE:
+				return new LogisticsReseachTableTileEntity();
 			default:
 				return null;
 		}
@@ -179,7 +179,7 @@ public class LogisticsSolidBlock extends BlockContainer {
 			case LOGISTICS_RF_POWERPROVIDER:
 			case LOGISTICS_IC2_POWERPROVIDER:
 			case LOGISTICS_BLOCK_FRAME:
-			case LOGISTICS_DEVELOPMENT_STATION:
+			case LOGISTICS_RESEARCH_TABLE:
 				return par1;
 		}
 		return super.damageDropped(par1);

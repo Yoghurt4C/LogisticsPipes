@@ -4,6 +4,7 @@ import logisticspipes.LogisticsPipes;
 import logisticspipes.config.PlayerConfig;
 import logisticspipes.utils.gui.DummyContainer;
 import logisticspipes.utils.gui.GuiCheckBox;
+import logisticspipes.utils.gui.GuiGraphics;
 import logisticspipes.utils.gui.LogisticsBaseTabGuiScreen;
 import logisticspipes.utils.gui.SearchBar;
 import logisticspipes.utils.string.StringUtils;
@@ -30,6 +31,12 @@ public class GuiLogisticsSettings extends LogisticsBaseTabGuiScreen {
 		addTab(new PipeRenderSettings());
 
 		inventorySlots = dummy;
+	}
+
+	@Override
+	protected void drawGuiContainerBackgroundLayer(float f, int mouse_x, int mouse_y) {
+		super.drawGuiContainerBackgroundLayer(f, mouse_x, mouse_y);
+		GuiGraphics.drawPlayerInventoryBackground(mc, guiLeft + 10, guiTop + 135);
 	}
 
 	private class PipeRenderSettings extends TabSubGui {

@@ -67,8 +67,8 @@ public class SmallGuiButton extends GuiButton {
 
 	@Override
 	public void drawButton(Minecraft minecraft, int i, int j) {
-		if(visHandler != null) {
-			visible = visHandler.isVisible();
+		if(visHandler != null && !visHandler.isVisible()) {
+			return;
 		}
 		if (!visible) {
 			return;

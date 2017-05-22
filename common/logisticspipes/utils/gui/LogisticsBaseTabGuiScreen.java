@@ -45,7 +45,6 @@ public class LogisticsBaseTabGuiScreen extends LogisticsBaseGuiScreen {
 		}
 		GuiGraphics.drawGuiBackGround(mc, guiLeft, guiTop + 20, right, bottom, zLevel, true);
 		GuiGraphics.drawGuiBackGround(mc, guiLeft + (25 * current_Tab) + 2, guiTop - 2, guiLeft + 27 + (25 * current_Tab), guiTop + 38, zLevel, true, true, true, false, true);
-		GuiGraphics.drawPlayerInventoryBackground(mc, guiLeft + 10, guiTop + 135);
 
 		int x = 6;
 		for (TabSubGui aTabList : tabList) {

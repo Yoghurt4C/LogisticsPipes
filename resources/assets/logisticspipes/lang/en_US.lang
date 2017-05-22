@@ -273,14 +273,15 @@ item.upgrade.info.requestblock=Request Block
 item.upgrade.info.chassi=Chassi
 item.upgrade.info.basic=Basic
 
-#Chips
+# Chips
 item.logisticsChips.basicMicrocontroller=Basic Microcontroller
 item.logisticsChips.basicMicrocontrollerRaw=Raw Basic Microcontroller
 item.logisticsChips.advancedMicrocontroller=Advanced Microcontroller
 item.logisticsChips.advancedMicrocontrollerRaw=Raw Advanced Microcontroller
 item.logisticsChips.fpga=FPGA
-item.logisticsChips.fpga=Raw FPGA
+item.logisticsChips.fpgaRaw=Raw FPGA
 item.logisticsChips.programmableMicrocontroller=Programmable Microcontroller
+item.logisticsChips.programmableMicrocontroller.info=Program:
 
 # Blocks
 tile.logisticsblankblock=Logistics Block Frame
@@ -293,7 +294,7 @@ tile.logisticsbcpowerprovider=Logistics MJ Power Provider
 tile.logisticsic2powerprovider=Logistics EU Power Provider
 tile.logisticstepowerprovider=Logistics RF Power Provider
 tile.logisticsstatisticstable=Logistics Statistics Table
-tile.logisticsdevelopmentstation=Logistics Development Station
+tile.logisticsResearchTable=Module Research Table
 
 # Misc
 itemGroup.Logistics_Pipes=Logistics Pipes
@@ -306,6 +307,22 @@ misc.extractionmode.Leave1PerStack=Leave 1 item per stack
 misc.extractionmode.Leave1PerType=Leave 1 item per type
 misc.selectType=Select Type
 misc.selectOreDict=Select OreDict Type
+misc.logisticspipes.tick=tick
+misc.logisticspipes.ticks=ticks
+misc.logisticspipes.tick.small=t
+misc.logisticspipes.second=second
+misc.logisticspipes.seconds=seconds
+misc.logisticspipes.second.small=s
+misc.logisticspipes.minute=minute
+misc.logisticspipes.minutes=minutes
+misc.logisticspipes.minute.small=min
+misc.logisticspipes.hour=hour
+misc.logisticspipes.hours=hours
+misc.logisticspipes.hour.small=h
+misc.logisticspipes.day=day
+misc.logisticspipes.days=days
+misc.logisticspipes.day.small=d
+misc.logisticspipes.notime=No Time
 
 #Misc Chat messages
 
@@ -466,3 +483,16 @@ gui.settings.pipenewrenderer=Use New Renderer
 gui.settings.pipefallbackrenderer=Use Fallback Renderer
 gui.settings.piperenderdistance=Max. Distance for new Renderer
 gui.settings.pipecontentrenderdistance=Max. Distance for Pipe Content
+
+gui.researchTier.Basic=Basic Research
+gui.researchTier.Advanced=Advanced Research
+gui.researchTier.HighSpeed=HighSpeed Research
+gui.researchTier.Intelligent=Intelligent Research
+gui.researchTier.Compatibility=Compatibility Research
+
+gui.researchTable.unlock=Unlock
+gui.researchTable.flash=Flash
+gui.researchTable.takestime=Will take:
+gui.researchTable.timetogo=Time to go:
+
+

@@ -4,6 +4,7 @@ import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 
 import net.minecraft.client.gui.FontRenderer;
@@ -172,5 +173,77 @@ public final class StringUtils {
 		}
 		sb.insert(0, source.substring(0, i));
 		return sb.toString();
+	}
+
+	public static String ticksToReadableTime(int raw_ticks) {
+		return ticksToReadableTime(raw_ticks, false, false);
+	}
+
+	public static String ticksToReadableTime(int raw_ticks, boolean exact, boolean small) {
+		int ticks = raw_ticks % 20;
+		raw_ticks /= 20;
+		int seconds = raw_ticks % 60;
+		raw_ticks /= 60;
+		int minutes = raw_ticks % 60;
+		raw_ticks /= 60;
+		int hours = raw_ticks % 24;
+		raw_ticks /= 24;
+		int days = raw_ticks;
+		LinkedList<String> parts = new LinkedList<>();
+		int stateA = 0;
+		int stateB = 0;
+		if (days > 0) {
+			parts.add(appendTicksToReadableTime(days, "day", small));
+			stateA = 1;
+		}
+		if (hours > 0) {
+			parts.add(appendTicksToReadableTime(hours, "hour", small));
+			if (stateA == 0) stateA = 2;
+			else if (stateB == 0) stateB = 2;
+		}
+		if (minutes > 0) {
+			parts.add(appendTicksToReadableTime(minutes, "minute", small));
+			if (stateA == 0) stateA = 3;
+			else if (stateB == 0) stateB = 3;
+		}
+		if (seconds > 0) {
+			parts.add(appendTicksToReadableTime(seconds, "second", small));
+			if (stateA == 0) stateA = 4;
+			else if (stateB == 0) stateB = 4;
+		}
+		if (ticks > 0) {
+			parts.add(appendTicksToReadableTime(ticks, "tick", small));
+			if (stateA == 0) stateA = 5;
+			else if (stateB == 0) stateB = 5;
+		}
+		if (parts.isEmpty()) {
+			return translate("misc.logisticspipes.notime");
+		}
+		StringBuilder builder = new StringBuilder();
+		if (!exact) {
+			while (parts.size() > (stateA + 1 == stateB ? 2 : 1)) {
+				parts.removeLast();
+			}
+		}
+		for (int i = 0; i < parts.size(); i++) {
+			if (i != 0) {
+				if (i == parts.size() - 1) {
+					builder.append(" and ");
+				} else {
+					builder.append(", ");
+				}
+			}
+			builder.append(parts.get(i));
+		}
+		return builder.toString();
+	}
+
+	private static String appendTicksToReadableTime(int value, String keyname, boolean small) {
+		StringBuilder builder = new StringBuilder();
+		final String KEY = "misc.logisticspipes.";
+		builder.append(value);
+		builder.append(" ");
+		builder.append(translate(KEY + keyname + (small ? ".small": (value > 1 ? "s" : ""))));
+		return builder.toString();
 	}
 }

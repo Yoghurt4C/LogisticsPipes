@@ -126,8 +126,10 @@ public class DummyContainer extends Container {
 		return addSlotToContainer(new DummySlot(dummy, slotId, xCoord, yCoord));
 	}
 
-	public void addNormalSlot(int slotId, IInventory inventory, int xCoord, int yCoord) {
-		transferTop.add(addSlotToContainer(new Slot(inventory, slotId, xCoord, yCoord)));
+	public Slot addNormalSlot(int slotId, IInventory inventory, int xCoord, int yCoord) {
+		Slot slot;
+		transferTop.add(slot = addSlotToContainer(new Slot(inventory, slotId, xCoord, yCoord)));
+		return slot;
 	}
 
 	public Slot addRestrictedSlot(int slotId, IInventory inventory, int xCoord, int yCoord, Item item) {

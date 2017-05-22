@@ -84,6 +84,12 @@ public class GuiPipeController extends LogisticsBaseTabGuiScreen {
 		inventorySlots = dummy;
 	}
 
+	@Override
+	protected void drawGuiContainerBackgroundLayer(float f, int mouse_x, int mouse_y) {
+		super.drawGuiContainerBackgroundLayer(f, mouse_x, mouse_y);
+		GuiGraphics.drawPlayerInventoryBackground(mc, guiLeft + 10, guiTop + 135);
+	}
+
 	private class Upgrades extends TabSubGui {
 
 		private final List<Slot> TAB_SLOTS_SNEAKY_INV = new ArrayList<>();
