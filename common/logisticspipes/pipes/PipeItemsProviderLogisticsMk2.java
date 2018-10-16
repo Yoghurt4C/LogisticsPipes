@@ -1,9 +1,9 @@
 package logisticspipes.pipes;
 
+import net.minecraft.item.Item;
+
 import logisticspipes.textures.Textures;
 import logisticspipes.textures.Textures.TextureType;
-
-import net.minecraft.item.Item;
 
 public class PipeItemsProviderLogisticsMk2 extends PipeItemsProviderLogistics {
 
@@ -24,11 +24,6 @@ public class PipeItemsProviderLogisticsMk2 extends PipeItemsProviderLogistics {
 	@Override
 	protected int itemsToExtract() {
 		return 128;
-	}
-
-	@Override
-	protected int stacksToExtract() {
-		return 8;
 	}
 
 	@Override

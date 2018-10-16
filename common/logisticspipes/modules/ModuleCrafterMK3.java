@@ -5,6 +5,10 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.IInventory;
+import net.minecraft.nbt.NBTTagCompound;
+
 import logisticspipes.interfaces.IBufferItems;
 import logisticspipes.interfaces.IModuleInventoryReceive;
 import logisticspipes.interfaces.routing.IAdditionalTargetInformation;
@@ -12,25 +16,14 @@ import logisticspipes.network.PacketHandler;
 import logisticspipes.network.packets.module.ModuleInventory;
 import logisticspipes.pipes.PipeItemsCraftingLogisticsMk3;
 import logisticspipes.proxy.MainProxy;
-import logisticspipes.proxy.SimpleServiceLocator;
-import logisticspipes.routing.order.IOrderInfoProvider.ResourceType;
 import logisticspipes.utils.CacheHolder.CacheTypes;
 import logisticspipes.utils.ISimpleInventoryEventHandler;
-import logisticspipes.utils.InventoryHelper;
 import logisticspipes.utils.SinkReply;
 import logisticspipes.utils.SinkReply.BufferMode;
 import logisticspipes.utils.item.ItemIdentifier;
 import logisticspipes.utils.item.ItemIdentifierInventory;
 import logisticspipes.utils.item.ItemIdentifierStack;
 import logisticspipes.utils.tuples.Triplet;
-import network.rs485.logisticspipes.world.WorldCoordinatesWrapper.AdjacentTileEntity;
-
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.inventory.IInventory;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-
-import net.minecraft.util.EnumFacing;
 
 public class ModuleCrafterMK3 extends ModuleCrafter implements IBufferItems, ISimpleInventoryEventHandler, IModuleInventoryReceive {
 
@@ -50,6 +43,7 @@ public class ModuleCrafterMK3 extends ModuleCrafter implements IBufferItems, ISi
 	@Override
 	//function-called-on-module-removal-from-pipe
 	public void onAllowedRemoval() {
+		super.onAllowedRemoval();
 		inv.dropContents(getWorld(), getX(), getY(), getZ());
 	}
 
@@ -104,59 +98,10 @@ public class ModuleCrafterMK3 extends ModuleCrafter implements IBufferItems, ISi
 	}
 
 	@Override
-	protected int stacksToExtract() {
-		return 8;
-	}
-
-	@Override
 	public void tick() {
 		super.tick();
-		if (inv.isEmpty()) {
-			return;
-		}
-		if (!_service.isNthTick(6)) {
-			return;
-		}
-		//Add from internal buffer
-		List<AdjacentTileEntity> crafters = locateCrafters();
-		boolean change = false;
-		for (AdjacentTileEntity adjacent : crafters) {
-			for (int i = inv.getSizeInventory() - 1; i >= 0; i--) {
-				ItemIdentifierStack slot = inv.getIDStackInSlot(i);
-				if (slot == null) {
-					continue;
-				}
-				EnumFacing insertion = adjacent.direction.getOpposite();
-				if (getUpgradeManager().hasSneakyUpgrade()) {
-					insertion = getUpgradeManager().getSneakyOrientation();
-				}
-				ItemIdentifierStack toadd = slot.clone();
-				toadd.setStackSize(Math.min(toadd.getStackSize(), toadd.getItem().getMaxStackSize()));
-				if (_service.getItemOrderManager().hasOrders(ResourceType.CRAFTING)) {
-					toadd.setStackSize(Math.min(toadd.getStackSize(), ((IInventory) adjacent.tileEntity).getInventoryStackLimit()));
-					ItemStack added = InventoryHelper.getTransactorFor(adjacent.tileEntity, adjacent.direction.getOpposite())
-							.add(toadd.makeNormalStack(), insertion, true);
-					slot.setStackSize(slot.getStackSize() - added.getCount());
-					if (!added.isEmpty()) {
-						change = true;
-					}
-				} else {
-					_service.queueRoutedItem(SimpleServiceLocator.routedItemHelper.createNewTravelItem(toadd), adjacent.direction.getOpposite());
-					slot.setStackSize(slot.getStackSize() - toadd.getStackSize());
-					change = true;
-				}
-				if (slot.getStackSize() <= 0) {
-					inv.clearInventorySlotContents(i);
-				} else {
-					inv.setInventorySlotContents(i, slot);
-				}
-			}
-		}
-		if (change) {
-			inv.markDirty();
-			_service.getCacheHolder().trigger(CacheTypes.Inventory);
-		}
 
+		// TODO PROVIDE REFACTOR: check orders and fulfill them
 	}
 
 	@Override

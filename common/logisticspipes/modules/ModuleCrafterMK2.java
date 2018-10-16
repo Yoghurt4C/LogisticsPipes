@@ -20,9 +20,4 @@ public class ModuleCrafterMK2 extends ModuleCrafter {
 		return 64;
 	}
 
-	@Override
-	protected int stacksToExtract() {
-		return 1;
-	}
-
 }

@@ -8,12 +8,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
-
 import javax.annotation.Nullable;
 import javax.vecmath.Matrix4f;
 
-import logisticspipes.LPBlocks;
-import logisticspipes.items.ItemLogisticsPipe;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.block.model.BakedQuad;
 import net.minecraft.client.renderer.block.model.IBakedModel;
@@ -40,6 +37,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 
+import logisticspipes.LPBlocks;
+import logisticspipes.items.ItemLogisticsPipe;
 import logisticspipes.pipes.PipeBlockRequestTable;
 import logisticspipes.pipes.basic.CoreRoutedPipe;
 import logisticspipes.pipes.basic.CoreUnroutedPipe;

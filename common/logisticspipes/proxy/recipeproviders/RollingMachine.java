@@ -2,14 +2,14 @@ package logisticspipes.proxy.recipeproviders;
 
 import java.lang.reflect.Method;
 
-import logisticspipes.LogisticsPipes;
-import logisticspipes.proxy.interfaces.ICraftingRecipeProvider;
-import logisticspipes.utils.item.ItemIdentifierInventory;
-
 import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
+
+import logisticspipes.LogisticsPipes;
+import logisticspipes.proxy.interfaces.ICraftingRecipeProvider;
+import logisticspipes.utils.item.ItemIdentifierInventory;
 
 public class RollingMachine implements ICraftingRecipeProvider {
 
@@ -31,7 +31,7 @@ public class RollingMachine implements ICraftingRecipeProvider {
 			return null;
 		}
 		try {
-			Class<?> c = Class.forName("mods.railcraft.common.util.crafting.RollingMachineCraftingManager");
+			Class<?> c = Class.forName("mods.railcraft.common.network.crafting.RollingMachineCraftingManager");
 			Method inst = c.getMethod("getInstance");
 			Object instance = inst.invoke(null);
 			Method findMatchingRecipe = c.getMethod("findMatchingRecipe", InventoryCrafting.class, World.class);

@@ -1,6 +1,7 @@
 package logisticspipes.modules;
 
-import java.util.List;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 
 import logisticspipes.modules.abstractmodules.LogisticsModule;
 import logisticspipes.pipes.PipeLogisticsChassi.ChassiTargetInformation;
@@ -8,9 +9,6 @@ import logisticspipes.proxy.SimpleServiceLocator;
 import logisticspipes.utils.SinkReply;
 import logisticspipes.utils.SinkReply.FixedPriority;
 import logisticspipes.utils.item.ItemIdentifier;
-
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
 
 public class ModuleApiaristTerminus extends LogisticsModule {
 
@@ -75,11 +73,6 @@ public class ModuleApiaristTerminus extends LogisticsModule {
 	@Override
 	public boolean hasGenericInterests() {
 		return true;
-	}
-
-	@Override
-	public List<ItemIdentifier> getSpecificInterests() {
-		return null;
 	}
 
 	@Override

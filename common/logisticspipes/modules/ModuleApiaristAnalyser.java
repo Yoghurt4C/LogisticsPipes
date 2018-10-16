@@ -3,6 +3,10 @@ package logisticspipes.modules;
 import java.util.ArrayList;
 import java.util.List;
 
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+
 import logisticspipes.interfaces.IClientInformationProvider;
 import logisticspipes.interfaces.IInventoryUtil;
 import logisticspipes.interfaces.IModuleWatchReciver;
@@ -24,10 +28,6 @@ import logisticspipes.utils.SinkReply;
 import logisticspipes.utils.SinkReply.FixedPriority;
 import logisticspipes.utils.item.ItemIdentifier;
 import logisticspipes.utils.tuples.Pair;
-
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
 
 public class ModuleApiaristAnalyser extends LogisticsGuiModule implements IClientInformationProvider, IModuleWatchReciver {
 
@@ -112,11 +112,6 @@ public class ModuleApiaristAnalyser extends LogisticsGuiModule implements IClien
 	@Override
 	public boolean hasGenericInterests() {
 		return true;
-	}
-
-	@Override
-	public List<ItemIdentifier> getSpecificInterests() {
-		return null;
 	}
 
 	@Override

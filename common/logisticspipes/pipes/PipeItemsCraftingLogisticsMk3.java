@@ -1,5 +1,10 @@
 package logisticspipes.pipes;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import net.minecraft.item.Item;
+
 import logisticspipes.gui.hud.HUDCraftingMK3;
 import logisticspipes.interfaces.IBufferItems;
 import logisticspipes.interfaces.IHeadUpDisplayRenderer;
@@ -10,8 +15,6 @@ import logisticspipes.modules.abstractmodules.LogisticsModule.ModulePositionType
 import logisticspipes.textures.Textures;
 import logisticspipes.textures.Textures.TextureType;
 import logisticspipes.utils.item.ItemIdentifierStack;
-
-import net.minecraft.item.Item;
 
 public class PipeItemsCraftingLogisticsMk3 extends PipeItemsCraftingLogisticsMk2 implements IBufferItems {
 
@@ -26,12 +29,6 @@ public class PipeItemsCraftingLogisticsMk3 extends PipeItemsCraftingLogisticsMk2
 	@Override
 	public void enabledUpdateEntity() {
 		super.enabledUpdateEntity();
-	}
-
-	@Override
-	public void onAllowedRemoval() {
-		super.onAllowedRemoval();
-		craftingModule.onAllowedRemoval();
 	}
 
 	@Override
@@ -59,5 +56,10 @@ public class PipeItemsCraftingLogisticsMk3 extends PipeItemsCraftingLogisticsMk2
 	@Override
 	public int addToBuffer(ItemIdentifierStack stack, IAdditionalTargetInformation info) {
 		return getMk3Module().addToBuffer(stack, info);
+	}
+
+	public List<ItemIdentifierStack> getCraftedItems() {
+		// TODO PROVIDE REFACTOR
+		return new ArrayList<>(0);
 	}
 }

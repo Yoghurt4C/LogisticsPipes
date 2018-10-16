@@ -2,6 +2,9 @@ package logisticspipes.modules;
 
 import java.util.List;
 
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+
 import logisticspipes.interfaces.IInventoryUtil;
 import logisticspipes.interfaces.routing.IFilter;
 import logisticspipes.modules.abstractmodules.LogisticsModule;
@@ -13,9 +16,6 @@ import logisticspipes.utils.SinkReply;
 import logisticspipes.utils.SinkReply.FixedPriority;
 import logisticspipes.utils.item.ItemIdentifier;
 import logisticspipes.utils.tuples.Triplet;
-
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
 
 public class ModuleElectricBuffer extends LogisticsModule {
 
@@ -103,11 +103,6 @@ public class ModuleElectricBuffer extends LogisticsModule {
 	@Override
 	public boolean hasGenericInterests() {
 		return true;
-	}
-
-	@Override
-	public List<ItemIdentifier> getSpecificInterests() {
-		return null;
 	}
 
 	@Override

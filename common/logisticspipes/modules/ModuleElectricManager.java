@@ -4,6 +4,11 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.IInventory;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+
 import logisticspipes.gui.hud.modules.HUDElectricManager;
 import logisticspipes.interfaces.IClientInformationProvider;
 import logisticspipes.interfaces.IHUDModuleHandler;
@@ -37,11 +42,6 @@ import logisticspipes.utils.item.ItemIdentifier;
 import logisticspipes.utils.item.ItemIdentifierInventory;
 import logisticspipes.utils.item.ItemIdentifierStack;
 import logisticspipes.utils.tuples.Triplet;
-
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.inventory.IInventory;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
 
 public class ModuleElectricManager extends LogisticsGuiModule implements IClientInformationProvider, IHUDModuleHandler, IModuleWatchReciver, ISimpleInventoryEventHandler, IModuleInventoryReceive {
 
@@ -250,11 +250,6 @@ public class ModuleElectricManager extends LogisticsGuiModule implements IClient
 	@Override
 	public boolean hasGenericInterests() {
 		return true;
-	}
-
-	@Override
-	public List<ItemIdentifier> getSpecificInterests() {
-		return null;
 	}
 
 	@Override

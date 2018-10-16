@@ -7,15 +7,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
-import logisticspipes.LPConstants;
-import logisticspipes.asm.enderio.ClassAbstractLiquidConduitHandler;
-import logisticspipes.asm.enderio.ClassItemConduitHandler;
-import logisticspipes.asm.enderio.ClassNetworkedInventoryHandler;
-import logisticspipes.asm.td.ClassRenderDuctItemsHandler;
-import logisticspipes.asm.td.ClassTileMultiBlockHandler;
-import logisticspipes.asm.td.ClassTravelingItemHandler;
-import logisticspipes.utils.ModStatusHelper;
-
 import net.minecraft.launchwrapper.IClassTransformer;
 import net.minecraft.launchwrapper.LaunchClassLoader;
 
@@ -28,11 +19,19 @@ import net.minecraftforge.fml.common.versioning.VersionParser;
 import net.minecraftforge.fml.common.versioning.VersionRange;
 import net.minecraftforge.fml.relauncher.Side;
 
-import org.objectweb.asm.*;
+import org.objectweb.asm.ClassReader;
+import org.objectweb.asm.ClassWriter;
+import org.objectweb.asm.FieldVisitor;
+import org.objectweb.asm.Label;
+import org.objectweb.asm.MethodVisitor;
+import org.objectweb.asm.Opcodes;
 import org.objectweb.asm.tree.AnnotationNode;
 import org.objectweb.asm.tree.ClassNode;
 import org.objectweb.asm.tree.FieldNode;
 import org.objectweb.asm.tree.MethodNode;
+
+import logisticspipes.LPConstants;
+import logisticspipes.utils.ModStatusHelper;
 
 public class LogisticsClassTransformer implements IClassTransformer {
 

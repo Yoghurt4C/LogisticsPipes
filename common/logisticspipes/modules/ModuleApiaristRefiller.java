@@ -1,7 +1,12 @@
 package logisticspipes.modules;
 
 import java.util.ArrayList;
-import java.util.List;
+
+import net.minecraft.inventory.ISidedInventory;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.EnumFacing;
 
 import logisticspipes.modules.abstractmodules.LogisticsModule;
 import logisticspipes.pipefxhandlers.Particles;
@@ -10,13 +15,6 @@ import logisticspipes.proxy.SimpleServiceLocator;
 import logisticspipes.utils.SinkReply;
 import logisticspipes.utils.item.ItemIdentifier;
 import logisticspipes.utils.tuples.Pair;
-
-import net.minecraft.inventory.ISidedInventory;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.EnumFacing;
 
 public class ModuleApiaristRefiller extends LogisticsModule {
 
@@ -153,11 +151,6 @@ public class ModuleApiaristRefiller extends LogisticsModule {
 	@Override
 	public boolean hasGenericInterests() {
 		return true;
-	}
-
-	@Override
-	public List<ItemIdentifier> getSpecificInterests() {
-		return null;
 	}
 
 	@Override

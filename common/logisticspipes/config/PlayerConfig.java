@@ -26,7 +26,6 @@ import lombok.SneakyThrows;
 import logisticspipes.network.PacketHandler;
 import logisticspipes.network.packets.PlayerConfigToServerPacket;
 import logisticspipes.proxy.MainProxy;
-import logisticspipes.proxy.SimpleServiceLocator;
 import logisticspipes.utils.PlayerIdentifier;
 import network.rs485.logisticspipes.util.LPDataInput;
 import network.rs485.logisticspipes.util.LPDataOutput;

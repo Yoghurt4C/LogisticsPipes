@@ -1,7 +1,6 @@
 package logisticspipes.pipes;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -28,7 +27,6 @@ import logisticspipes.gui.hud.HUDInvSysConnector;
 import logisticspipes.interfaces.IHeadUpDisplayRenderer;
 import logisticspipes.interfaces.IHeadUpDisplayRendererProvider;
 import logisticspipes.interfaces.IInventoryUtil;
-import logisticspipes.interfaces.IOrderManagerContentReceiver;
 import logisticspipes.interfaces.routing.IDirectRoutingConnection;
 import logisticspipes.logisticspipes.IRoutedItem;
 import logisticspipes.modules.abstractmodules.LogisticsModule;
@@ -46,7 +44,6 @@ import logisticspipes.routing.pathfinder.IPipeInformationProvider.ConnectionPipe
 import logisticspipes.textures.Textures;
 import logisticspipes.textures.Textures.TextureType;
 import logisticspipes.transport.TransportInvConnection;
-import logisticspipes.utils.InventoryHelper;
 import logisticspipes.utils.PlayerCollectionList;
 import logisticspipes.utils.item.ItemIdentifier;
 import logisticspipes.utils.item.ItemIdentifierInventory;
@@ -56,7 +53,7 @@ import network.rs485.logisticspipes.world.CoordinateUtils;
 import network.rs485.logisticspipes.world.DoubleCoordinates;
 import network.rs485.logisticspipes.world.WorldCoordinatesWrapper;
 
-public class PipeItemsInvSysConnector extends CoreRoutedPipe implements IDirectRoutingConnection, IHeadUpDisplayRendererProvider, IOrderManagerContentReceiver {
+public class PipeItemsInvSysConnector extends CoreRoutedPipe implements IDirectRoutingConnection, IHeadUpDisplayRendererProvider {
 
 	private boolean init = false;
 	private HashMap<ItemIdentifier, List<ItemRoutingInformation>> itemsOnRoute = new HashMap<>();
@@ -428,11 +425,4 @@ public class PipeItemsInvSysConnector extends CoreRoutedPipe implements IDirectR
 		super.playerStopWatching(player, mode);
 		localModeWatchers.remove(player);
 	}
-
-	@Override
-	public void setOrderManagerContent(Collection<ItemIdentifierStack> list) {
-		displayList.clear();
-		displayList.addAll(list);
-	}
-
 }
